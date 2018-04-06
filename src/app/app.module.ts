@@ -43,10 +43,10 @@ import { ResetpwdPage } from '../pages/resetpwd/resetpwd';
     LoginPage,
     DriverprofilePage,
     DriverdashboardPage,
+    OtpPage,
     DriverRidePage,
     TriphistoryPage,
     OtpscreenPage,
-    OtpPage,
     ResetpwdPage
   ],
   imports: [
@@ -66,10 +66,10 @@ import { ResetpwdPage } from '../pages/resetpwd/resetpwd';
     DocumentationPage,
     DriverprofilePage,
     DriverdashboardPage,
+    OtpPage,
     DriverRidePage,
     TriphistoryPage,
     OtpscreenPage,
-    OtpPage,
     ResetpwdPage
   ],
   providers: [

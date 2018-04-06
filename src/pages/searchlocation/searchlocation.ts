@@ -205,7 +205,7 @@ export class SearchlocationPage {
       }
       if (this.password == this.confirmPassword) {
 
-        this.navCtrl.push(OtpPage, { navData: data, carData: carInfo });
+        this.navCtrl.setRoot(OtpPage, { navData: data, carData: carInfo });
 
       } else {
         this.message = "Please enter the confirm correct password.";

@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.memeinfotech.kuoodo" version="0.2.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.memeinfotech.kuoododriver" version="0.3.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>KuoodoUser</name>
     <description>An awesome Ionic/Cordova app.</description>
     <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
@@ -84,16 +84,18 @@
     <allow-navigation href="http://192.168.0.122:8100" />
     <engine name="browser" spec="5.0.1" />
     <engine name="ios" spec="^4.5.1" />
+    <engine name="android" spec="6.4.0" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.1.0" />
-    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
+    <plugin name="cordova-plugin-ionic-webview" spec="^1.1.19" />
     <plugin name="cordova-plugin-network-information" spec="^1.3.4" />
-    <plugin name="cordova-plugin-googlemaps" spec="^2.2.5">
+    <plugin name="cordova-plugin-googlemaps" spec="^2.2.9">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAUPuxyDGrvKeeVZWk4wHbtWSVkziBzD10" />
         <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="24.1.0" />
+        <variable name="API_KEY_FOR_IOS" value="(API_KEY_FOR_IOS)" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^2.4.3" />
     <plugin name="cordova-plugin-nativegeocoder" spec="^2.0.5" />
@@ -108,9 +110,8 @@
         <variable name="APP_ID" value="142453023105753" />
         <variable name="APP_NAME" value="kuoodoUserApp" />
     </plugin>
-    <plugin name="cordova-plugin-googleplus" spec="^5.2.1">
+    <plugin name="cordova-plugin-googleplus" spec="^5.2.3">
         <variable name="REVERSED_CLIENT_ID" value="1064773157789-j5c0rc1jfmdabdnfoj9gopg9ogfussfm.apps.googleusercontent.com" />
     </plugin>
-    <engine name="android" spec="~6.4.0" />
     <plugin name="cordova-plugin-vibration" spec="^3.0.1" />
 </widget>

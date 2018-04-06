@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { HttpService } from '../../app.httpService';
 import { ResetpwdPage } from '../resetpwd/resetpwd';
 
@@ -16,7 +16,8 @@ export class OtpscreenPage {
     public phone: string = "";
     public code: string = "";
     public otpmessage: string;
-    constructor(public navCtrl: NavController, public navParams: NavParams, public api: HttpService) {
+    constructor(public navCtrl: NavController, public navParams: NavParams,
+        public api: HttpService, public toastCtrl: ToastController) {
     }
 
     ionViewDidLoad() {
@@ -24,14 +25,21 @@ export class OtpscreenPage {
     }
 
     sendOTP() {
-        if (this.phone.trim().length >= 8) {
-            console.log('send otp function', this.phone)
-            this.api.sendFOTP(this.phone).subscribe(data => {
-                console.log('otp result', data)
-                this.isPhoneNumber = false;
-                this.isCode = true;
-            })
-        }
+        this.api.sendFOTP(this.phone).subscribe(data => {
+            console.log('otp result', data)
+            this.isPhoneNumber = false;
+            this.isCode = true;
+        },
+            error => {
+                if (error.error == true) {
+                    let toast = this.toastCtrl.create({
+                        message: error.message,
+                        duration: 3000,
+                        position: 'top'
+                    });
+                    toast.present(toast);
+                }
+            });
     }
 
     verifyOTP() {

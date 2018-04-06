@@ -107,35 +107,60 @@ export class DocumentationPage {
         .map(res => res.json())
         .catch(error => Observable.throw(error))
         .subscribe(
-        data => {
+          data => {
 
-          //Dismiss the loader
-          this.loader.dismiss();
+            //Dismiss the loader
+            this.loader.dismiss();
 
-          console.log("Data is :");
-          console.log(data);
+            console.log("Data is :");
+            console.log(data);
 
-          this.imageIdOne = data.upload._id;
+            this.imageIdOne = data.upload._id;
 
-          this.message = "Driving License Upload Successfully.";
-          this.showToast('top');
+            this.message = "Driving License Upload Successfully.";
 
-          if (data) {
-            this.checkdrivingLicense = true;
-            this.checkvehicleInsurance = false;
-          }
-        },
-        error => {
-          if (error) {
-            console.log("Error is :");
-            console.log(error);
+            //link to driver
+            let a = [{ _id: this.imageIdOne }];
+            let b = [{ _id: this.imageIdTwo }];
+            let c = [{ _id: this.imageIdThree }];
+            let d = [{ _id: this.imageIdFour }];
+            var dataOne = {
+              userId: this.id,
+              drivingLicense: a,
+              vehicleInsurance: b,
+              vechileRegistration: c,
+              vehiclePermit: d
+            }
 
-            this.checkdrivingLicense = false;
-            this.checkvehicleInsurance = true;
-            this.checkvehicleRegistration = true;
-            this.checkvehiclePermit = true;
-          }
-        });
+
+            this.appService.documentUpload(dataOne, (error, data) => {
+              if (error) {
+                console.log("Error :");
+                console.log(error);
+              }
+              else if (data) {
+                console.log("Document upload result :");
+                console.log(data);
+              }
+            });
+            this.showToast('top');
+
+            if (data) {
+              this.checkdrivingLicense = true;
+              this.checkvehicleInsurance = false;
+            }
+          },
+          error => {
+            if (error) {
+              console.log("Error is :");
+              console.log(error);
+
+              this.checkdrivingLicense = false;
+              this.checkvehicleInsurance = true;
+              this.checkvehicleRegistration = true;
+              this.checkvehiclePermit = true;
+            }
+          });
     }
   }
 
@@ -183,35 +208,58 @@ export class DocumentationPage {
         .map(res => res.json())
         .catch(error => Observable.throw(error))
         .subscribe(
-        data => {
+          data => {
 
-          //Dismiss the loader
-          this.loader.dismiss();
+            //Dismiss the loader
+            this.loader.dismiss();
 
-          console.log("Data is :");
-          console.log(data);
+            console.log("Data is :");
+            console.log(data);
 
-          this.imageIdTwo = data.upload._id;
+            this.imageIdTwo = data.upload._id;
 
-          this.message = "Vehicle Insurance Upload Successfully.";
-          this.showToast('top');
+            this.message = "Vehicle Insurance Upload Successfully.";
+            this.showToast('top');
 
-          if (data) {
-            this.checkvehicleInsurance = true;
-            this.checkvehicleRegistration = false;
-          }
-        },
-        error => {
-          if (error) {
-            console.log("Error is :");
-            console.log(error);
+            let a = [{ _id: this.imageIdOne }];
+            let b = [{ _id: this.imageIdTwo }];
+            let c = [{ _id: this.imageIdThree }];
+            let d = [{ _id: this.imageIdFour }];
+            var dataOne = {
+              userId: this.id,
+              drivingLicense: a,
+              vehicleInsurance: b,
+              vechileRegistration: c,
+              vehiclePermit: d
+            }
 
-            this.checkdrivingLicense = true;
-            this.checkvehicleInsurance = false;
-            this.checkvehicleRegistration = true;
-            this.checkvehiclePermit = true;
-          }
-        })
+            this.appService.documentUpload(dataOne, (error, data) => {
+              if (error) {
+                console.log("Error :");
+                console.log(error);
+              }
+              else if (data) {
+                console.log("Document upload result :");
+                console.log(data);
+              }
+            });
+
+            if (data) {
+              this.checkvehicleInsurance = true;
+              this.checkvehicleRegistration = false;
+            }
+          },
+          error => {
+            if (error) {
+              console.log("Error is :");
+              console.log(error);
+
+              this.checkdrivingLicense = true;
+              this.checkvehicleInsurance = false;
+              this.checkvehicleRegistration = true;
+              this.checkvehiclePermit = true;
+            }
+          })
     }
   }
 
@@ -259,35 +307,58 @@ export class DocumentationPage {
         .map(res => res.json())
         .catch(error => Observable.throw(error))
         .subscribe(
-        data => {
+          data => {
 
-          //Dismiss the loader
-          this.loader.dismiss();
+            //Dismiss the loader
+            this.loader.dismiss();
 
-          console.log("Data is :");
-          console.log(data);
+            console.log("Data is :");
+            console.log(data);
 
-          this.imageIdThree = data.upload._id;
+            this.imageIdThree = data.upload._id;
 
-          this.message = "Vehicle Registration Upload Successfully.";
-          this.showToast('top');
+            this.message = "Vehicle Registration Upload Successfully.";
+            this.showToast('top');
 
-          if (data) {
-            this.checkvehicleRegistration = true;
-            this.checkvehiclePermit = false;
-          }
-        },
-        error => {
-          if (error) {
-            console.log("Error is :");
-            console.log(error);
+            let a = [{ _id: this.imageIdOne }];
+            let b = [{ _id: this.imageIdTwo }];
+            let c = [{ _id: this.imageIdThree }];
+            let d = [{ _id: this.imageIdFour }];
+            var dataOne = {
+              userId: this.id,
+              drivingLicense: a,
+              vehicleInsurance: b,
+              vechileRegistration: c,
+              vehiclePermit: d
+            }
 
-            this.checkdrivingLicense = true;
-            this.checkvehicleInsurance = true;
-            this.checkvehicleRegistration = false;
-            this.checkvehiclePermit = true;
-          }
-        })
+            this.appService.documentUpload(dataOne, (error, data) => {
+              if (error) {
+                console.log("Error :");
+                console.log(error);
+              }
+              else if (data) {
+                console.log("Document upload result :");
+                console.log(data);
+              }
+            });
+
+            if (data) {
+              this.checkvehicleRegistration = true;
+              this.checkvehiclePermit = false;
+            }
+          },
+          error => {
+            if (error) {
+              console.log("Error is :");
+              console.log(error);
+
+              this.checkdrivingLicense = true;
+              this.checkvehicleInsurance = true;
+              this.checkvehicleRegistration = false;
+              this.checkvehiclePermit = true;
+            }
+          })
     }
   }
 
@@ -334,36 +405,60 @@ export class DocumentationPage {
         .map(res => res.json())
         .catch(error => Observable.throw(error))
         .subscribe(
-        data => {
+          data => {
 
-          //Dismiss the loader
-          this.loader.dismiss();
+            //Dismiss the loader
+            this.loader.dismiss();
 
-          console.log("Data is :");
-          console.log(data);
+            console.log("Data is :");
+            console.log(data);
 
-          this.imageIdFour = data.upload._id;
+            this.imageIdFour = data.upload._id;
 
-          if (data) {
-            this.checkvehiclePermit = true;
-            this.message = "Vehicle Permit Upload Successfully.";
-            this.showToast('top');
-          }
-        },
-        error => {
-          if (error) {
-            console.log("Error is :");
-            console.log(error);
+            if (data) {
+              this.checkvehiclePermit = true;
+              this.message = "Vehicle Permit Upload Successfully.";
+              this.showToast('top');
 
-            this.checkdrivingLicense = true;
-            this.checkvehicleInsurance = true;
-            this.checkvehicleRegistration = true;
-            this.checkvehiclePermit = false;
-          }
-        })
+              let a = [{ _id: this.imageIdOne }];
+              let b = [{ _id: this.imageIdTwo }];
+              let c = [{ _id: this.imageIdThree }];
+              let d = [{ _id: this.imageIdFour }];
+              var dataOne = {
+                userId: this.id,
+                drivingLicense: a,
+                vehicleInsurance: b,
+                vechileRegistration: c,
+                vehiclePermit: d
+              }
+
+              this.appService.documentUpload(dataOne, (error, data) => {
+                if (error) {
+                  console.log("Error :");
+                  console.log(error);
+                }
+                else if (data) {
+                  console.log("Document upload result :");
+                  console.log(data);
+                }
+              });
+            }
+          },
+          error => {
+            if (error) {
+              console.log("Error is :");
+              console.log(error);
+
+              this.checkdrivingLicense = true;
+              this.checkvehicleInsurance = true;
+              this.checkvehicleRegistration = true;
+              this.checkvehiclePermit = false;
+            }
+          })
     }
   }
 
+  /*
   DocUpload() {
     if (this.imageIdOne && this.imageIdTwo && this.imageIdThree && this.imageIdFour) {
       let a = [{ _id: this.imageIdOne }];
@@ -393,6 +488,7 @@ export class DocumentationPage {
       this.showToast('top');
     }
   }
+  */
 
   /*
     Loader message
@@ -426,10 +522,16 @@ export class DocumentationPage {
       }
       else if (data) {
 
-        _base.drivingLicenseImageId = (data.result[1].drivingLicense.length) ? data.result[1].drivingLicense[data.result[1].drivingLicense.length - 1] : '';
-        _base.vehicleRegistrationImageId = (data.result[1].vechileRegistration.length) ? data.result[1].vechileRegistration[data.result[1].vechileRegistration.length - 1] : '';
-        _base.vehicleInsurenceImageId = (data.result[1].vehicleInsurance.length) ? data.result[1].vehicleInsurance[data.result[1].vehicleInsurance.length - 1] : '';
-        _base.vehiclePermitImageId = (data.result[1].vehiclePermit.length) ? data.result[1].vehiclePermit[data.result[1].vehiclePermit.length - 1] : '';
+        _base.drivingLicenseImageId = (data.result[data.result.length - 1].drivingLicense.length) ? data.result[data.result.length - 1].drivingLicense[data.result[data.result.length - 1].drivingLicense.length - 1] : '';
+        _base.vehicleRegistrationImageId = (data.result[data.result.length - 1].vechileRegistration.length) ? data.result[data.result.length - 1].vechileRegistration[data.result[data.result.length - 1].vechileRegistration.length - 1] : '';
+        _base.vehicleInsurenceImageId = (data.result[data.result.length - 1].vehicleInsurance.length) ? data.result[data.result.length - 1].vehicleInsurance[data.result[data.result.length - 1].vehicleInsurance.length - 1] : '';
+        _base.vehiclePermitImageId = (data.result[data.result.length - 1].vehiclePermit.length) ? data.result[data.result.length - 1].vehiclePermit[data.result[data.result.length - 1].vehiclePermit.length - 1] : '';
+
+
+        _base.imageIdOne = _base.drivingLicenseImageId;
+        _base.imageIdTwo = _base.vehicleRegistrationImageId;
+        _base.imageIdThree = _base.vehicleInsurenceImageId;
+        _base.imageIdFour = _base.vehiclePermitImageId;
 
         _base.url = "http://mitapi.memeinfotech.com:5040/user/fileShow?imageId=" + _base.drivingLicenseImageId;
         _base.urlOne = "http://mitapi.memeinfotech.com:5040/user/fileShow?imageId=" + _base.vehicleRegistrationImageId;

@@ -33,6 +33,12 @@ export class ResetpwdPage {
                 if (data.error == false) {
                     console.log("After reset password :");
                     console.log(data);
+                    let toast = this.toastCtrl.create({
+                        message: data.message,
+                        duration: 3000,
+                        position: 'top'
+                    });
+                    toast.present(toast);
                     this.navCtrl.setRoot(LoginPage);
                 } else {
                     let toast = this.toastCtrl.create({
