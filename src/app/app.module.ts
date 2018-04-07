@@ -31,6 +31,7 @@ import { Vibration } from '@ionic-native/vibration';
 import { OtpscreenPage } from '../pages/otpscreen/otpscreen';
 import { OtpPage } from '../pages/otp/otp';
 import { ResetpwdPage } from '../pages/resetpwd/resetpwd';
+import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 
 @NgModule({
   declarations: [
@@ -86,6 +87,7 @@ import { ResetpwdPage } from '../pages/resetpwd/resetpwd';
     LocalNotifications,
     Diagnostic,
     Vibration,
+    NativeGeocoder,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

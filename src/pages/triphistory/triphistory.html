@@ -12,11 +12,11 @@
     </button>
     <ion-toolbar>
       <ion-title>Trip History</ion-title>
-      <ion-buttons end>
+      <!-- <ion-buttons end>
         <button ion-button icon-only color="white">
           <ion-icon name="search"></ion-icon>
         </button>
-      </ion-buttons>
+      </ion-buttons> -->
     </ion-toolbar>
   </ion-navbar>
 
@@ -38,7 +38,7 @@
           </ion-avatar>
           <!-- profile img -->
           <!-- date html -->
-          <ion-note item-end class="time">{{trip.createdDate.substring(0,10)}}</ion-note>
+          <ion-note item-end class="time">{{(trip.createdDate)?trip.createdDate.substring(0,10):''}}</ion-note>
           <!-- date html -->
           <!-- profile name -->
           <p>{{trip.userId.firstName +' '+trip.userId.lastName}}</p>
@@ -51,14 +51,14 @@
     <ion-card-content padding-top>
       <!-- start time -->
       <div class="start" padding-left>
-        <p no-margin>{{trip.startTime.substring(15,25)}}</p>
+        <p no-margin>{{(trip.startTime)?trip.startTime.substring(15,25):''}}</p>
         <span>{{trip.startLocation}}</span>
       </div>
       <!-- start time -->
 
       <!-- end time -->
       <div class="end" padding-left>
-        <p no-margin>{{trip.endTime.substring(15,25)}}</p>
+        <p no-margin>{{(trip.endTime)?trip.endTime.substring(15,25):''}}</p>
         <span>{{trip.endLocation}}</span>
       </div>
       <!-- end time -->

@@ -6,7 +6,7 @@ import { LocalStorageProvider } from '../../app.localStorage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { File } from '@ionic-native/file';
-
+import { NativeGeocoder, NativeGeocoderReverseResult } from '@ionic-native/native-geocoder';
 /**
  * Generated class for the DriverprofilePage page.
  *
@@ -48,7 +48,8 @@ export class DriverprofilePage {
     private transfer: FileTransfer,
     private camera: Camera,
     public file: File,
-    public events: Events) {
+    public events: Events,
+    private nativeGeocoder: NativeGeocoder) {
 
     /*
     Getting id's after registration or login in driver profile page
@@ -77,7 +78,26 @@ export class DriverprofilePage {
             this.username = data.user.firstName + " " + data.user.lastName;
             this.email = data.user.email;
             this.phoneNumber = data.user.phoneNumber;
-            this.location = data.user.location;
+
+            this.nativeGeocoder.reverseGeocode(data.user.location[1], data.user.location[0])
+              .then((result: NativeGeocoderReverseResult) => {
+
+                let countryName = result.countryName;
+                let administrativeArea = result.administrativeArea;
+                let locality = result.locality;
+                let subAdministrativeArea = result.subAdministrativeArea;
+
+                /*
+                Convert to complete address
+                */
+
+                this.location = locality + ',' + subAdministrativeArea + ',' + administrativeArea + ',' + countryName;
+              }).catch((error: any) => {
+                console.log(error);
+              });
+
+
+            // this.location = data.user.location;
             this.imageId = data.user.profileImage;
             this.rate = data.user.rating;
             if (this.imageId) {
@@ -106,8 +126,16 @@ export class DriverprofilePage {
   submit() {
     let _base = this;
     if (this.username) {
+      console.log("username", this.username);
       this.firstName = this.username.substr(0, this.username.indexOf(' '));
+      console.log("first name", this.firstName);
       this.lastName = this.username.substr(this.username.indexOf(' ') + 1);
+      console.log("last name", this.lastName);
+      console.log(this.firstName.trim().length);
+      if (this.firstName.trim().length == 0) {
+        this.firstName = this.lastName;
+        this.lastName = "";
+      }
     }
 
     if (this.id) {
@@ -118,6 +146,7 @@ export class DriverprofilePage {
         email: this.email,
         location: this.location
       }
+      console.log(data);
       this.appService.UpdateUser(data, (error, data) => {
         if (error) {
           console.log("Update user data error :");

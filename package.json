@@ -39,7 +39,7 @@
     "@ionic-native/google-maps": "^4.3.3",
     "@ionic-native/google-plus": "^4.5.2",
     "@ionic-native/local-notifications": "^4.5.0",
-    "@ionic-native/native-geocoder": "^4.4.2",
+    "@ionic-native/native-geocoder": "^4.6.0",
     "@ionic-native/network": "^4.4.0",
     "@ionic-native/paypal": "^4.4.2",
     "@ionic-native/splash-screen": "4.3.0",
