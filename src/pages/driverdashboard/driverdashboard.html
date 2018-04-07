@@ -161,7 +161,7 @@
             </div> -->
     <div class="middlesec">
         <div #map id="map" style="height: 483px;">
-            <div class="footersec" [hidden]="isAcceptRideHidden && IsStartRideHidden && IsEndRideHidden">
+            <div class="footersec" [hidden]="IsStartRideHidden && IsEndRideHidden">
                 <ion-grid no-padding>
                     <ion-row>
                         <ion-col>
@@ -169,12 +169,6 @@
                                 <span></span>
                             </p>
                         </ion-col>
-                        <!-- <ion-col col-6 text-center>
-                            <button ion-button text-center class="acceptbtn" [hidden]="isAcceptRideHidden" (click)="acceptRide()">Accept Ride</button>
-                        </ion-col>
-                        <ion-col col-6 text-center>
-                            <button ion-button text-center class="acceptbtn" [hidden]="isAcceptRideHidden" (click)="cancelRide()">Cancel Ride</button>
-                        </ion-col> -->
                         <ion-col>
                             <button ion-button text-center class="acceptbtn" [hidden]="IsStartRideHidden" (click)="startRide()">Start Ride</button>
                         </ion-col>

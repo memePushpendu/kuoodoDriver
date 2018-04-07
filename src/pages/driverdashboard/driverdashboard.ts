@@ -179,7 +179,6 @@ export class DriverdashboardPage {
           _base.userEndLongitude = null;
           _base.isStartRide = false;
           _base.isEndRide = false;
-          // _base.isAcceptRideHidden = true;
           _base.IsStartRideHidden = true;
           _base.IsEndRideHidden = true;
           _base.waitingLoader.dismiss();
