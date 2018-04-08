@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { NavController, NavParams, Platform, LoadingController, AlertController,Events } from 'ionic-angular';
+import { NavController, NavParams, Platform, LoadingController, AlertController, Events } from 'ionic-angular';
 import {
   GoogleMaps,
   GoogleMap,
@@ -531,6 +531,7 @@ export class DriverdashboardPage {
           console.log("Error :", error);
         }
         else if (data) {
+          console.log(data);
         }
       });
     }

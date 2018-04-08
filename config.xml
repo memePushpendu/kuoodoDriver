@@ -84,7 +84,6 @@
     <allow-navigation href="http://192.168.0.122:8100" />
     <engine name="browser" spec="5.0.1" />
     <engine name="ios" spec="^4.5.1" />
-    <engine name="android" spec="6.4.0" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-statusbar" spec="^2.4.1" />
@@ -114,4 +113,5 @@
         <variable name="REVERSED_CLIENT_ID" value="1064773157789-j5c0rc1jfmdabdnfoj9gopg9ogfussfm.apps.googleusercontent.com" />
     </plugin>
     <plugin name="cordova-plugin-vibration" spec="^3.0.1" />
+    <engine name="android" spec="~6.4.0" />
 </widget>
